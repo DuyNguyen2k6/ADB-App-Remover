@@ -2,14 +2,14 @@ import subprocess
 import tkinter as tk
 from tkinter import messagebox, Listbox, Scrollbar, MULTIPLE, END
 
-# Theme settings
-BG_COLOR = "#f3f4f6"
-CARD_BG = "#ffffff"
-PRIMARY_COLOR = "#2563eb"
-DANGER_COLOR = "#ef4444"
-FONT = ("Segoe UI", 11)
-TITLE_FONT = ("Segoe UI Semibold", 16)
-ENTRY_BG = "#e5e7eb"
+# Win10 theme settings
+BG_COLOR = "#f2f2f2"
+CARD_BG = "#e6e6e6"
+PRIMARY_COLOR = "#0078D7"
+DANGER_COLOR = "#e81123"
+FONT = ("Segoe UI", 10)
+TITLE_FONT = ("Segoe UI Semibold", 15)
+ENTRY_BG = "#ffffff"
 
 def get_installed_packages():
     try:
@@ -84,86 +84,86 @@ def uninstall_selected():
     refresh_list()
 
 root = tk.Tk()
-root.title("🪟 Gỡ app Android - Windows 11 Style")
-root.geometry("480x640")
+root.title("Gỡ app Android - Windows 10 Style")
+root.geometry("440x600")
 root.configure(bg=BG_COLOR)
-root.minsize(420, 540)
+root.minsize(400, 480)
 
 # Title
-title_label = tk.Label(root, text="GỠ APP ANDROID", font=TITLE_FONT, bg=BG_COLOR, fg=PRIMARY_COLOR, pady=8)
-title_label.pack(pady=(16, 8))
+title_label = tk.Label(root, text="GỠ APP ANDROID", font=TITLE_FONT, bg=BG_COLOR, fg=PRIMARY_COLOR, pady=7)
+title_label.pack(pady=(14, 6))
 
 # Card frame
-card = tk.Frame(root, bg=CARD_BG, bd=0, relief="flat")
-card.pack(fill="both", expand=True, padx=28, pady=(0, 18))
+card = tk.Frame(root, bg=CARD_BG, bd=2, relief="groove")
+card.pack(fill="both", expand=True, padx=20, pady=(0, 18))
 
 # Search bar
 search_frame = tk.Frame(card, bg=CARD_BG)
-search_frame.pack(fill="x", padx=12, pady=(16, 10))
+search_frame.pack(fill="x", padx=10, pady=(14, 8))
 
 search_var = tk.StringVar()
 search_entry = tk.Entry(
-    search_frame, textvariable=search_var, font=FONT, bg=ENTRY_BG, 
-    relief="flat", borderwidth=8, fg="#555", justify="left"
+    search_frame, textvariable=search_var, font=FONT, bg=ENTRY_BG,
+    relief="solid", borderwidth=1, fg="#222", justify="left"
 )
-search_entry.pack(side="left", fill="x", expand=True, ipady=7)
-search_entry.insert(0, "Nhập từ khóa để tìm app...")
+search_entry.pack(side="left", fill="x", expand=True, ipady=6)
+search_entry.insert(0, "....................Nhập từ khóa để tìm app....................")
 
 def clear_placeholder(event):
-    if search_entry.get() == "Nhập từ khóa để tìm app...":
+    if search_entry.get() == "....................Nhập từ khóa để tìm app....................":
         search_entry.delete(0, END)
         search_entry.config(fg="#222")
 search_entry.bind("<FocusIn>", clear_placeholder)
 search_entry.bind("<KeyRelease>", search_package)
 
 search_btn = tk.Button(
-    search_frame, text="Tìm kiếm", font=FONT, bg=PRIMARY_COLOR, fg="white", 
-    activebackground="#1d4ed8", relief="flat", bd=0, padx=18, pady=5, 
+    search_frame, text="Tìm kiếm", font=FONT, bg=PRIMARY_COLOR, fg="white",
+    activebackground="#005a9e", relief="flat", bd=1, padx=12, pady=3,
     command=search_package, cursor="hand2"
 )
-search_btn.pack(side="right", padx=8)
+search_btn.pack(side="right", padx=7)
 
 # Listbox
 list_frame = tk.Frame(card, bg=CARD_BG)
-list_frame.pack(fill="both", expand=True, padx=0, pady=(0, 10))
+list_frame.pack(fill="both", expand=True, padx=0, pady=(0, 8))
 
-scroll = Scrollbar(list_frame, bg=CARD_BG)
-scroll.pack(side="right", fill="y", pady=4)
+scroll = Scrollbar(list_frame)
+scroll.pack(side="right", fill="y", pady=2)
 
 listbox = Listbox(
     list_frame, selectmode=MULTIPLE, yscrollcommand=scroll.set,
-    font=FONT, relief="flat", borderwidth=0, highlightthickness=1,
-    highlightbackground="#e5e7eb", bg="#f9fafb", fg="#222",
+    font=FONT, relief="solid", borderwidth=1, highlightthickness=1,
+    highlightbackground="#d1d5db", bg="#fff", fg="#222",
     selectbackground=PRIMARY_COLOR, selectforeground="white",
     activestyle="none"
 )
-listbox.pack(fill="both", expand=True, pady=4, ipadx=4, ipady=4)
+listbox.pack(fill="both", expand=True, pady=2)
 scroll.config(command=listbox.yview)
 
 # Button row
 btn_frame = tk.Frame(card, bg=CARD_BG)
-btn_frame.pack(fill="x", padx=8, pady=(0, 14))
+btn_frame.pack(fill="x", padx=8, pady=(0, 12))
 
 refresh_btn = tk.Button(
-    btn_frame, text="⟳ Tải lại", font=FONT, bg="#f1f5f9", fg=PRIMARY_COLOR,
-    activebackground="#dbeafe", activeforeground=PRIMARY_COLOR,
-    relief="flat", bd=0, padx=12, pady=8, cursor="hand2", command=refresh_list
+    btn_frame, text="⟳ Tải lại", font=FONT, bg="#e1e1e1", fg=PRIMARY_COLOR,
+    activebackground="#d1d1d1", activeforeground=PRIMARY_COLOR,
+    relief="ridge", bd=1, padx=10, pady=6, cursor="hand2", command=refresh_list
 )
-refresh_btn.pack(side="left", padx=(0, 12), ipadx=2, ipady=1)
+refresh_btn.pack(side="left", padx=(0, 10), ipadx=2, ipady=0)
 
 uninstall_btn = tk.Button(
     btn_frame, text="🗑 Gỡ app đã chọn", font=FONT, bg=DANGER_COLOR, fg="white",
-    activebackground="#dc2626", relief="flat", bd=0, padx=14, pady=8, 
+    activebackground="#c50f1f", relief="ridge", bd=1, padx=12, pady=6,
     cursor="hand2", command=uninstall_selected
 )
-uninstall_btn.pack(side="right", padx=(12, 0), ipadx=2, ipady=1)
+uninstall_btn.pack(side="right", padx=(10, 0), ipadx=2, ipady=0)
 
 # Status label
 status_label = tk.Label(
-    root, text="Đang chờ thao tác...", font=("Segoe UI", 10),
-    fg="#3b82f6", bg=BG_COLOR, pady=9
+    root, text="Đang chờ thao tác...", font=("Segoe UI", 9),
+    fg=PRIMARY_COLOR, bg=BG_COLOR, pady=8
 )
-status_label.pack(fill="x", padx=28, pady=(0, 10))
+status_label.pack(fill="x", padx=20, pady=(0, 8))
 
 # Data holder
 all_packages = []
