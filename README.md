@@ -1,35 +1,61 @@
-# ADB-App-Remover
+# ADB App Remover
 
-Công cụ hỗ trợ gỡ ứng dụng hệ thống (bloatware) trên thiết bị Android thông qua ADB, không cần root.
-
-## Tính năng
-
-- Gỡ ứng dụng hệ thống và ứng dụng người dùng bằng lệnh ADB
-- Giao diện đơn giản, dễ sử dụng
-- Tương thích với hầu hết thiết bị Android
-
-## Yêu cầu
-
-- Đã cài đặt **ADB** trên máy tính
-- Đã bật **Gỡ lỗi USB** (USB Debugging) trên điện thoại
-
-## Hướng dẫn sử dụng
-
-1. Tải và giải nén phần mềm
-2. Kết nối điện thoại Android với máy tính bằng cáp USB
-3. Bật **Gỡ lỗi USB** trong Tùy chọn nhà phát triển
-4. Chạy file `ADB-App-Remover.exe`
-5. Làm theo hướng dẫn để chọn và gỡ ứng dụng mong muốn
-
-## Lưu ý
-
-- Không nên gỡ các ứng dụng hệ thống quan trọng
-- Nếu muốn cài lại app đã gỡ, cần cài thủ công qua file APK hoặc khôi phục cài đặt gốc
-
-## Đóng góp
-
-Mọi đóng góp xin gửi về [issues](https://github.com/DuyNguyen2k6/ADB-App-Remover/issues).
+A simple application to **list** and **uninstall** apps installed on your Android device via ADB (Android Debug Bridge).
 
 ---
 
-**Tác giả:** [DuyNguyen2k6](https://github.com/DuyNguyen2k6)
+## Features
+
+- Displays all installed apps on the Android device (user 0).
+- Quick search for app names.
+- Uninstall one or multiple selected apps.
+- User-friendly interface.
+- Packaged as a standalone EXE file.
+
+---
+
+## Requirements
+
+- Android device with **Developer Options** and **USB Debugging** enabled.
+- ADB installed and configured in your computer's PATH.
+- USB connection between Android device and computer.
+
+---
+
+## How to Use the EXE File
+
+1. Connect your Android device to the computer via USB and ensure USB Debugging is enabled.
+2. Run the `adb_uninstaller.exe` file (or your EXE file name).
+3. Click the **Refresh** button to load the list of installed apps on your device.
+4. Use the search box to quickly filter apps.
+5. Select one or more apps you want to uninstall.
+6. Click the **Uninstall Selected Apps** button.
+7. Confirm the action when prompted.
+8. View the uninstall status and results on the interface.
+
+---
+
+## Notes
+
+- Make sure your device is connected and ADB is working properly.
+- Be careful when uninstalling system or critical apps.
+- The application is not responsible for uninstalling the wrong apps.
+
+---
+
+## License
+
+This application is released under the MIT License.
+
+---
+
+## Contact
+
+If you have any questions or feedback, please contact:
+
+- Email: ngduy10102006@gmail.com  
+- GitHub: [https://github.com/yourusername/adb-app-remover](https://github.com/yourusername/adb-app-remover)
+
+---
+
+Thank you for using ADB App Remover!
